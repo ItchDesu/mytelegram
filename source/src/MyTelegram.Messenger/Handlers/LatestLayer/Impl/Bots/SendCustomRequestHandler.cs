@@ -17,6 +17,6 @@ internal sealed class SendCustomRequestHandler : RpcResultObjectHandler<MyTelegr
     protected override Task<MyTelegram.Schema.IDataJSON> HandleCoreAsync(IRequestInput input,
         MyTelegram.Schema.Bots.RequestSendCustomRequest obj)
     {
-        throw new NotImplementedException();
+        return Task.FromResult<MyTelegram.Schema.IDataJSON>(new MyTelegram.Schema.TDataJSON { Data = "{}" });
     }
 }

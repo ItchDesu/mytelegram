@@ -17,6 +17,6 @@ internal sealed class AnswerWebhookJSONQueryHandler : RpcResultObjectHandler<MyT
     protected override Task<IBool> HandleCoreAsync(IRequestInput input,
         MyTelegram.Schema.Bots.RequestAnswerWebhookJSONQuery obj)
     {
-        throw new NotImplementedException();
+        return Task.FromResult<IBool>(new TBoolTrue());
     }
 }

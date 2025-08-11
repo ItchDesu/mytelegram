@@ -11,6 +11,13 @@ internal sealed class AllowSendMessageHandler : RpcResultObjectHandler<MyTelegra
     protected override Task<MyTelegram.Schema.IUpdates> HandleCoreAsync(IRequestInput input,
         MyTelegram.Schema.Bots.RequestAllowSendMessage obj)
     {
-        throw new NotImplementedException();
+        return Task.FromResult<MyTelegram.Schema.IUpdates>(new MyTelegram.Schema.TUpdates
+        {
+            Updates = new MyTelegram.Schema.TVector<MyTelegram.Schema.IUpdate>(),
+            Users = new MyTelegram.Schema.TVector<MyTelegram.Schema.IUser>(),
+            Chats = new MyTelegram.Schema.TVector<MyTelegram.Schema.IChat>(),
+            Date = (int)System.DateTimeOffset.UtcNow.ToUnixTimeSeconds(),
+            Seq = 0
+        });
     }
 }

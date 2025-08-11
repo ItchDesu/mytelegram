@@ -11,6 +11,10 @@ internal sealed class UpdateStarRefProgramHandler : RpcResultObjectHandler<MyTel
     protected override Task<MyTelegram.Schema.IStarRefProgram> HandleCoreAsync(IRequestInput input,
         MyTelegram.Schema.Bots.RequestUpdateStarRefProgram obj)
     {
-        throw new NotImplementedException();
+        return Task.FromResult<MyTelegram.Schema.IStarRefProgram>(new MyTelegram.Schema.TStarRefProgram
+        {
+            BotId = 0,
+            CommissionPermille = 0
+        });
     }
 }

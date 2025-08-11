@@ -11,6 +11,6 @@ internal sealed class InvokeWebViewCustomMethodHandler : RpcResultObjectHandler<
     protected override Task<MyTelegram.Schema.IDataJSON> HandleCoreAsync(IRequestInput input,
         MyTelegram.Schema.Bots.RequestInvokeWebViewCustomMethod obj)
     {
-        throw new NotImplementedException();
+        return Task.FromResult<MyTelegram.Schema.IDataJSON>(new MyTelegram.Schema.TDataJSON { Data = "{}" });
     }
 }

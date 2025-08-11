@@ -15,6 +15,10 @@ internal sealed class AddPreviewMediaHandler : RpcResultObjectHandler<MyTelegram
     protected override Task<MyTelegram.Schema.IBotPreviewMedia> HandleCoreAsync(IRequestInput input,
         MyTelegram.Schema.Bots.RequestAddPreviewMedia obj)
     {
-        throw new NotImplementedException();
+        return Task.FromResult<MyTelegram.Schema.IBotPreviewMedia>(new MyTelegram.Schema.TBotPreviewMedia
+        {
+            Date = (int)System.DateTimeOffset.UtcNow.ToUnixTimeSeconds(),
+            Media = new MyTelegram.Schema.TMessageMediaEmpty()
+        });
     }
 }

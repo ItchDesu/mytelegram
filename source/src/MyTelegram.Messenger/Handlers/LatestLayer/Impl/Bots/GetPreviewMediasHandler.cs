@@ -15,6 +15,6 @@ internal sealed class GetPreviewMediasHandler : RpcResultObjectHandler<MyTelegra
     protected override Task<TVector<MyTelegram.Schema.IBotPreviewMedia>> HandleCoreAsync(IRequestInput input,
         MyTelegram.Schema.Bots.RequestGetPreviewMedias obj)
     {
-        throw new NotImplementedException();
+        return Task.FromResult(new MyTelegram.Schema.TVector<MyTelegram.Schema.IBotPreviewMedia>());
     }
 }

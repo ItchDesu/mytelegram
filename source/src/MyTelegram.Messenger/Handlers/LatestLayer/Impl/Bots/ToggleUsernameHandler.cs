@@ -15,6 +15,6 @@ internal sealed class ToggleUsernameHandler : RpcResultObjectHandler<MyTelegram.
     protected override Task<IBool> HandleCoreAsync(IRequestInput input,
         MyTelegram.Schema.Bots.RequestToggleUsername obj)
     {
-        throw new NotImplementedException();
+        return Task.FromResult<IBool>(new TBoolTrue());
     }
 }

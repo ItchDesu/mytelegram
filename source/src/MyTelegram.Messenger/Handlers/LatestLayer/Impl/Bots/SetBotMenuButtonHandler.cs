@@ -16,6 +16,6 @@ internal sealed class SetBotMenuButtonHandler : RpcResultObjectHandler<MyTelegra
     protected override Task<IBool> HandleCoreAsync(IRequestInput input,
         MyTelegram.Schema.Bots.RequestSetBotMenuButton obj)
     {
-        throw new NotImplementedException();
+        return Task.FromResult<IBool>(new TBoolTrue());
     }
 }

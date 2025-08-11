@@ -15,6 +15,6 @@ internal sealed class DeletePreviewMediaHandler : RpcResultObjectHandler<MyTeleg
     protected override Task<IBool> HandleCoreAsync(IRequestInput input,
         MyTelegram.Schema.Bots.RequestDeletePreviewMedia obj)
     {
-        throw new NotImplementedException();
+        return Task.FromResult<IBool>(new TBoolTrue());
     }
 }

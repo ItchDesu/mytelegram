@@ -15,6 +15,10 @@ internal sealed class GetPreviewInfoHandler : RpcResultObjectHandler<MyTelegram.
     protected override Task<MyTelegram.Schema.Bots.IPreviewInfo> HandleCoreAsync(IRequestInput input,
         MyTelegram.Schema.Bots.RequestGetPreviewInfo obj)
     {
-        throw new NotImplementedException();
+        return Task.FromResult<MyTelegram.Schema.Bots.IPreviewInfo>(new MyTelegram.Schema.Bots.TPreviewInfo
+        {
+            Media = new MyTelegram.Schema.TVector<MyTelegram.Schema.IBotPreviewMedia>(),
+            LangCodes = new MyTelegram.Schema.TVector<string>()
+        });
     }
 }

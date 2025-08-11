@@ -16,6 +16,6 @@ internal sealed class SetBotGroupDefaultAdminRightsHandler : RpcResultObjectHand
     protected override Task<IBool> HandleCoreAsync(IRequestInput input,
         MyTelegram.Schema.Bots.RequestSetBotGroupDefaultAdminRights obj)
     {
-        throw new NotImplementedException();
+        return Task.FromResult<IBool>(new TBoolTrue());
     }
 }

@@ -11,6 +11,6 @@ internal sealed class GetAdminedBotsHandler : RpcResultObjectHandler<MyTelegram.
     protected override Task<TVector<MyTelegram.Schema.IUser>> HandleCoreAsync(IRequestInput input,
         MyTelegram.Schema.Bots.RequestGetAdminedBots obj)
     {
-        throw new NotImplementedException();
+        return Task.FromResult(new MyTelegram.Schema.TVector<MyTelegram.Schema.IUser>());
     }
 }

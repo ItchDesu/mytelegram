@@ -16,6 +16,11 @@ internal sealed class GetBotInfoHandler : RpcResultObjectHandler<MyTelegram.Sche
     protected override Task<MyTelegram.Schema.Bots.IBotInfo> HandleCoreAsync(IRequestInput input,
         MyTelegram.Schema.Bots.RequestGetBotInfo obj)
     {
-        throw new NotImplementedException();
+        return Task.FromResult<MyTelegram.Schema.Bots.IBotInfo>(new MyTelegram.Schema.Bots.TBotInfo
+        {
+            Name = string.Empty,
+            About = string.Empty,
+            Description = string.Empty
+        });
     }
 }

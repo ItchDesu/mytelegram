@@ -12,6 +12,9 @@ internal sealed class GetPopularAppBotsHandler : RpcResultObjectHandler<MyTelegr
     protected override Task<MyTelegram.Schema.Bots.IPopularAppBots> HandleCoreAsync(IRequestInput input,
         MyTelegram.Schema.Bots.RequestGetPopularAppBots obj)
     {
-        throw new NotImplementedException();
+        return Task.FromResult<MyTelegram.Schema.Bots.IPopularAppBots>(new MyTelegram.Schema.Bots.TPopularAppBots
+        {
+            Users = new MyTelegram.Schema.TVector<MyTelegram.Schema.IUser>()
+        });
     }
 }
