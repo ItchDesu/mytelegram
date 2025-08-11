@@ -125,7 +125,12 @@ internal static class StickerData
             var infos = new List<StickerInfo>(files.Length);
             for (var i = 0; i < files.Length; i++)
             {
-                infos.Add(new StickerInfo { Id = i + 1, File = Path.GetFileName(files[i]) });
+                infos.Add(new StickerInfo
+                {
+                    Id = i + 1,
+                    File = Path.GetFileName(files[i]),
+                    Emojis = new List<string>()
+                });
             }
             try
             {
@@ -180,5 +185,9 @@ internal static class StickerData
 
         [JsonPropertyName("file")]
         public string File { get; set; } = string.Empty;
+
+        // Optional list of emojis associated with the sticker.
+        [JsonPropertyName("emojis")]
+        public List<string>? Emojis { get; set; }
     }
 }

@@ -32,13 +32,29 @@ public static class StickerSample
             docs.Add(CreateDocument(info));
         }
 
+        var packs = new TVector<IStickerPack>();
+        var emojiGroups = StickerData.StickerInfos
+            .SelectMany(info => (info.Emojis ?? Enumerable.Empty<string>())
+                .Select(e => new { Emoji = e, Id = info.Id }))
+            .GroupBy(x => x.Emoji);
+
+        foreach (var group in emojiGroups)
+        {
+            packs.Add(new TStickerPack
+            {
+                Emoticon = group.Key,
+                Documents = new TVector<long>(group.Select(x => x.Id))
+            });
+        }
+
         return new M.TStickerSet
         {
             Set = CreateStickerSet(),
-            Packs = new TVector<IStickerPack>(),
+            Packs = packs,
             Keywords = new TVector<IStickerKeyword>(),
             Documents = docs
         };
+    }
 
     public static TStickerSetCovered CreateStickerSetCovered()
     {

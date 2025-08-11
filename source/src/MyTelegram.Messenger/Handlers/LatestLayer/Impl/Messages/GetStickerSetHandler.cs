@@ -55,7 +55,23 @@ internal sealed class GetStickerSetHandler : RpcResultObjectHandler<MyTelegram.S
                     },
                     new TDocumentAttributeImageSize { W = 512, H = 512 })
             };
-            documents.Add(doc);
+                documents.Add(doc);
+        }
+
+        // Build emoji -> sticker id mapping so clients can show stickers in the set.
+        var packs = new TVector<IStickerPack>();
+        var emojiGroups = StickerData.StickerInfos
+            .SelectMany(info => (info.Emojis ?? Enumerable.Empty<string>())
+                .Select(e => new { Emoji = e, Id = info.Id }))
+            .GroupBy(x => x.Emoji);
+
+        foreach (var group in emojiGroups)
+        {
+            packs.Add(new TStickerPack
+            {
+                Emoticon = group.Key,
+                Documents = new TVector<long>(group.Select(x => x.Id))
+            });
         }
 
         var set = new MyTelegram.Schema.TStickerSet
@@ -71,7 +87,7 @@ internal sealed class GetStickerSetHandler : RpcResultObjectHandler<MyTelegram.S
         var result = new MyTelegram.Schema.Messages.TStickerSet
         {
             Set = set,
-            Packs = new TVector<IStickerPack>(),
+            Packs = packs,
             Keywords = new TVector<IStickerKeyword>(),
             Documents = documents
         };
