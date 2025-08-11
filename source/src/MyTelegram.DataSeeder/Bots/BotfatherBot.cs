@@ -11,7 +11,9 @@ public class BotfatherBot
     public BotfatherBot(IOptions<MyTelegramDataSeederOptions> options)
     {
         var botOptions = options.Value.MyTelegramBotOptions;
-        _botClient = new TelegramBotClient(botOptions.BotFatherToken);
+        var baseUrl = botOptions.BotApiBaseUrl ?? "https://api.buzzster.io";
+        var botClientOptions = new TelegramBotClientOptions(botOptions.BotFatherToken, baseUrl);
+        _botClient = new TelegramBotClient(botClientOptions);
         _webhookUrl = botOptions.BotFatherWebHookUrl;
     }
 
@@ -19,7 +21,7 @@ public class BotfatherBot
     {
         if (!string.IsNullOrEmpty(_webhookUrl))
         {
-            await _botClient.SetWebhookAsync(_webhookUrl);
+            await _botClient.SetWebhook(_webhookUrl);
         }
     }
 }

@@ -6,4 +6,5 @@ public class MyTelegramBotOptions
     public string? BotFatherWebHookUrl { get; set; }
     public string? StickerLoaderBotWebHookUrl { get; set; }
     public string? TestBotWebHookUrl { get; set; }
+    public string BotApiBaseUrl { get; set; } = "https://api.buzzster.io";
 }
