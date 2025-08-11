@@ -14,13 +14,17 @@ internal sealed class GetMyStickersHandler : RpcResultObjectHandler<MyTelegram.S
     protected override Task<MyTelegram.Schema.Messages.IMyStickers> HandleCoreAsync(IRequestInput input,
         MyTelegram.Schema.Messages.RequestGetMyStickers obj)
     {
+        var hasStickers = StickerData.StickerInfos.Count > 0;
+        var sets = new TVector<MyTelegram.Schema.IStickerSetCovered>();
+        if (hasStickers)
+        {
+            sets.Add(StickerSample.CreateStickerSetCovered());
+        }
+
         return Task.FromResult<IMyStickers>(new TMyStickers
         {
-            Count = 1,
-            Sets = new TVector<MyTelegram.Schema.IStickerSetCovered>
-            {
-                StickerSample.CreateStickerSetCovered()
-            }
+            Count = hasStickers ? 1 : 0,
+            Sets = sets
         });
     }
 }

@@ -67,17 +67,30 @@ internal static class StickerData
             return envDir;
         }
 
-        var baseDir = AppContext.BaseDirectory;
-        var dir = Path.Combine(baseDir, "downloads", "stickersets", "bin_vk");
-        if (Directory.Exists(dir))
+        static string? Search(string start)
+        {
+            var info = new DirectoryInfo(start);
+            while (info != null)
+            {
+                var candidate = Path.Combine(info.FullName, "downloads", "stickersets", "bin_vk");
+                if (Directory.Exists(candidate))
+                {
+                    return candidate;
+                }
+
+                info = info.Parent;
+            }
+
+            return null;
+        }
+
+        var dir = Search(AppContext.BaseDirectory) ?? Search(Directory.GetCurrentDirectory());
+        if (dir != null)
         {
             return dir;
         }
 
-        // Fallback to the current working directory; useful for development scenarios.
-        var cwd = Directory.GetCurrentDirectory();
-        dir = Path.Combine(cwd, "downloads", "stickersets", "bin_vk");
-        return dir;
+        return Path.Combine(AppContext.BaseDirectory, "downloads", "stickersets", "bin_vk");
     }
 
     private static StickerFile LoadStickerInfo(string dir)
