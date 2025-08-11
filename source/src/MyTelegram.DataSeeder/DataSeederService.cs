@@ -11,16 +11,11 @@ public class DataSeederService(
     {
         try
         {
-            var config = await dataSeederHelper.LoadDataSeederConfigAsync();
+            await dataSeederHelper.LoadDataSeederConfigAsync();
 
-            // Users
-            if (!config.IsUserCreated)
-            {
-                await userDataSeeder.SeedAsync();
-                config.IsUserCreated = true;
-            }
-			
-			foreach (var dataSeeder in dataSeeders)
+            await userDataSeeder.SeedAsync();
+
+            foreach (var dataSeeder in dataSeeders)
             {
                 await dataSeeder.SeedAsync();
             }

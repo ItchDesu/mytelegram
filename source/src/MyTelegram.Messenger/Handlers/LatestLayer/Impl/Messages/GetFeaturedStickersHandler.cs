@@ -58,17 +58,6 @@ internal sealed class GetFeaturedStickersHandler :
             cover = new TDocumentEmpty { Id = 0 };
         }
 
-        if (StickerData.DefaultStickerIds.Count == 0)
-        {
-            return Task.FromResult<MyTelegram.Schema.Messages.IFeaturedStickers>(new TFeaturedStickers
-            {
-                Hash = 0,
-                Count = 0,
-                Sets = new TVector<MyTelegram.Schema.IStickerSetCovered>(),
-                Unread = new TVector<long>()
-            });
-        }
-
         var set = new MyTelegram.Schema.TStickerSet
         {
             Id = StickerData.StickerSetId,
@@ -78,6 +67,7 @@ internal sealed class GetFeaturedStickersHandler :
             Count = StickerData.DefaultStickerIds.Count,
             Hash = 0
         };
+
         var covered = new MyTelegram.Schema.TStickerSetCovered { Set = set, Cover = cover };
 
         return Task.FromResult<MyTelegram.Schema.Messages.IFeaturedStickers>(new TFeaturedStickers

@@ -14,17 +14,16 @@ internal sealed class GetAllStickersHandler :
         IRequestInput input,
         RequestGetAllStickers obj)
     {
-        var sets = StickerData.DefaultStickerIds.Count > 0
-            ? new TVector<MyTelegram.Schema.IStickerSet>(new MyTelegram.Schema.TStickerSet
-            {
-                Id = 1,
-                AccessHash = 0,
-                Title = "Bin",
-                ShortName = "bin_vk",
-                Count = StickerData.DefaultStickerIds.Count,
-                Hash = 0
-            })
-            : new TVector<MyTelegram.Schema.IStickerSet>();
+        var set = new MyTelegram.Schema.TStickerSet
+        {
+            Id = StickerData.StickerSetId,
+            AccessHash = StickerData.StickerSetAccessHash,
+            Title = StickerData.StickerSetTitle,
+            ShortName = StickerData.StickerSetShortName,
+            Count = StickerData.DefaultStickerIds.Count,
+            Hash = 0
+        };
+        var sets = new TVector<MyTelegram.Schema.IStickerSet>(set);
 
         var r = new MyTelegram.Schema.Messages.TAllStickers
         {
