@@ -3,6 +3,7 @@ using MyTelegram.Messenger.NativeAot;
 using MyTelegram.QueryHandlers.MongoDB.ChatAdmin;
 using MyTelegram.QueryHandlers.MongoDB.User;
 using MyTelegram.QueryHandlers.MongoDB.UserName;
+using MyTelegram.DataSeeder.Bots;
 
 namespace MyTelegram.DataSeeder.Extensions;
 
@@ -34,6 +35,7 @@ public static class MyTelegramDataSeederExtensions
         });
 
         services.AddTransient(typeof(IDataSeeder<>), typeof(DataSeeder<>));
+        services.AddSingleton<BotfatherClient>();
         services.RegisterServices();
         services.AddReadModelMongoDbContext();
         services.AddEventStoreMongoDbContext();

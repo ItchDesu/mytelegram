@@ -1,3 +1,6 @@
+using System.Net.Http.Json;
+using MyTelegram.DataSeeder.Bots;
+
 namespace MyTelegram.DataSeeder.DataSeeders;
 
 public class UserDataSeeder(
@@ -5,14 +8,15 @@ public class UserDataSeeder(
     IEventStore eventStore,
     ILogger<UserDataSeeder> logger,
     IOptionsMonitor<MyTelegramDataSeederOptions> options,
-    ISnapshotStore snapshotStore)
+    ISnapshotStore snapshotStore,
+    BotfatherClient botfatherClient)
     : IUserDataSeeder, ITransientDependency
 {
     public async Task SeedAsync()
     {
         await CreateOfficialUserAsync();
         await CreateDefaultSupportUserAsync();
-        //await CreateBotFatherUserAsync();
+        await CreateBotFatherUserAsync();
         //await CreateGroupAnonymousBotUserAsync();
         await CreateAnonymousUserAsync();
 
