@@ -1,5 +1,7 @@
 namespace MyTelegram.Messenger.Handlers.LatestLayer.Impl.Payments;
 
+using MyTelegram.Schema.Payments;
+
 ///<summary>
 /// Apply a <a href="https://corefork.telegram.org/api/giveaways">Telegram Premium giftcode </a>
 /// <para>Possible errors</para>
@@ -15,6 +17,15 @@ internal sealed class ApplyGiftCodeHandler : RpcResultObjectHandler<MyTelegram.S
     protected override Task<MyTelegram.Schema.IUpdates> HandleCoreAsync(IRequestInput input,
         MyTelegram.Schema.Payments.RequestApplyGiftCode obj)
     {
-        throw new NotImplementedException();
+        var updates = new TUpdates
+        {
+            Updates = [],
+            Users = [],
+            Chats = [],
+            Date = CurrentDate,
+            Seq = 0
+        };
+
+        return Task.FromResult<IUpdates>(updates);
     }
 }

@@ -14,6 +14,14 @@ internal sealed class ResolveBusinessChatLinkHandler : RpcResultObjectHandler<My
     protected override Task<MyTelegram.Schema.Account.IResolvedBusinessChatLinks> HandleCoreAsync(IRequestInput input,
         MyTelegram.Schema.Account.RequestResolveBusinessChatLink obj)
     {
-        throw new NotImplementedException();
+        var resolved = new TResolvedBusinessChatLinks
+        {
+            Peer = new TPeerUser { UserId = input.UserId },
+            Message = string.Empty,
+            Chats = [],
+            Users = []
+        };
+
+        return Task.FromResult<IResolvedBusinessChatLinks>(resolved);
     }
 }

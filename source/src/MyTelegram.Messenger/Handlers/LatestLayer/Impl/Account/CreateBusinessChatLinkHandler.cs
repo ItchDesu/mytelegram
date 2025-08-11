@@ -16,6 +16,17 @@ internal sealed class CreateBusinessChatLinkHandler : RpcResultObjectHandler<MyT
     protected override Task<MyTelegram.Schema.IBusinessChatLink> HandleCoreAsync(IRequestInput input,
         MyTelegram.Schema.Account.RequestCreateBusinessChatLink obj)
     {
-        throw new NotImplementedException();
+        var link = obj.Link as TInputBusinessChatLink;
+
+        var businessLink = new TBusinessChatLink
+        {
+            Link = $"https://buzzster.io/{input.UserId}/{Guid.NewGuid():N}",
+            Message = link?.Message ?? string.Empty,
+            Entities = link?.Entities,
+            Title = link?.Title,
+            Views = 0
+        };
+
+        return Task.FromResult<IBusinessChatLink>(businessLink);
     }
 }

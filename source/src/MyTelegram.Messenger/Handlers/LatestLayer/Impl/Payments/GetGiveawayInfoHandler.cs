@@ -1,5 +1,7 @@
 namespace MyTelegram.Messenger.Handlers.LatestLayer.Impl.Payments;
 
+using MyTelegram.Schema.Payments;
+
 ///<summary>
 /// Obtain information about a <a href="https://corefork.telegram.org/api/giveaways">Telegram Premium giveaway </a>.
 /// <para>Possible errors</para>
@@ -13,6 +15,11 @@ internal sealed class GetGiveawayInfoHandler : RpcResultObjectHandler<MyTelegram
     protected override Task<MyTelegram.Schema.Payments.IGiveawayInfo> HandleCoreAsync(IRequestInput input,
         MyTelegram.Schema.Payments.RequestGetGiveawayInfo obj)
     {
-        throw new NotImplementedException();
+        var giveawayInfo = new TGiveawayInfo
+        {
+            StartDate = CurrentDate
+        };
+
+        return Task.FromResult<MyTelegram.Schema.Payments.IGiveawayInfo>(giveawayInfo);
     }
 }

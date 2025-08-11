@@ -24,7 +24,7 @@ internal sealed class GetBoostsStatusHandler : RpcResultObjectHandler<MyTelegram
             Boosts = 1000,
             CurrentLevelBoosts = 100,
             NextLevelBoosts = 100,
-            BoostUrl = "https://t.me/"
+            BoostUrl = "https://buzzster.io/"
         };
 
         return Task.FromResult<IBoostsStatus>(boostsStatus);

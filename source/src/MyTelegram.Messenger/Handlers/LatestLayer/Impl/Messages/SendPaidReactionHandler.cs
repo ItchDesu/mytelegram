@@ -11,6 +11,15 @@ internal sealed class SendPaidReactionHandler : RpcResultObjectHandler<MyTelegra
     protected override Task<MyTelegram.Schema.IUpdates> HandleCoreAsync(IRequestInput input,
         MyTelegram.Schema.Messages.RequestSendPaidReaction obj)
     {
-        throw new NotImplementedException();
+        var updates = new TUpdates
+        {
+            Updates = [],
+            Users = [],
+            Chats = [],
+            Date = CurrentDate,
+            Seq = 0
+        };
+
+        return Task.FromResult<IUpdates>(updates);
     }
 }
