@@ -7,6 +7,9 @@ using MyTelegram.QueryHandlers.MongoDB;
 using MyTelegram.ReadModel.MongoDB;
 using MyTelegram.ReadModel.ReadModelLocators;
 using MyTelegram.Services.NativeAot;
+using MyTelegram.Messenger.Services.Interfaces;
+using MyTelegram.Messenger.Services.Impl;
+using MyTelegram.Messenger.BackgroundServices;
 using ChannelFullReadModel = MyTelegram.ReadModel.MongoDB.ChannelFullReadModel;
 using ChannelReadModel = MyTelegram.ReadModel.MongoDB.ChannelReadModel;
 using PhotoReadModel = MyTelegram.ReadModel.MongoDB.PhotoReadModel;
@@ -48,6 +51,9 @@ public static class MyTelegramMessengerServerExtensions
         {
             options.TypeInfoResolverChain.Add(MyMessengerJsonContext.Default);
         });
+
+        services.AddSingleton<IStarsService, StarsService>();
+        services.AddHostedService<WeeklyStarRewardBackgroundService>();
 
         return services;
     }

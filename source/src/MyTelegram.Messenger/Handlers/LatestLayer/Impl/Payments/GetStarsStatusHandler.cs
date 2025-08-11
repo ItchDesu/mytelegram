@@ -1,6 +1,8 @@
 // ReSharper disable All
 
 using MyTelegram.Converters.TLObjects.Payments;
+using MyTelegram.Messenger.Services.Interfaces;
+using MyTelegram.Schema;
 using MyTelegram.Schema.Payments;
 
 namespace MyTelegram.Messenger.Handlers.LatestLayer.Impl.Payments;
@@ -12,12 +14,17 @@ namespace MyTelegram.Messenger.Handlers.LatestLayer.Impl.Payments;
 /// 400 PEER_ID_INVALID The provided peer id is invalid.
 /// See <a href="https://corefork.telegram.org/method/payments.getStarsStatus" />
 ///</summary>
-internal sealed class GetStarsStatusHandler(ILayeredService<IStarsStatusConverter> starsStatusLayeredService) : RpcResultObjectHandler<MyTelegram.Schema.Payments.RequestGetStarsStatus, MyTelegram.Schema.Payments.IStarsStatus>,
+internal sealed class GetStarsStatusHandler(
+    ILayeredService<IStarsStatusConverter> starsStatusLayeredService,
+    IStarsService starsService) : RpcResultObjectHandler<MyTelegram.Schema.Payments.RequestGetStarsStatus, MyTelegram.Schema.Payments.IStarsStatus>,
     Payments.IGetStarsStatusHandler
 {
-    protected override Task<MyTelegram.Schema.Payments.IStarsStatus> HandleCoreAsync(IRequestInput input,
+    protected override async Task<MyTelegram.Schema.Payments.IStarsStatus> HandleCoreAsync(IRequestInput input,
         MyTelegram.Schema.Payments.RequestGetStarsStatus obj)
     {
-        return Task.FromResult<MyTelegram.Schema.Payments.IStarsStatus>(starsStatusLayeredService.GetConverter(input.Layer).ToStarsStatus());
+        var result = starsStatusLayeredService.GetConverter(input.Layer).ToStarsStatus();
+        var balance = await starsService.GetStarsAsync(input.UserId);
+        result.Balance = new TStarsAmount { Amount = balance };
+        return result;
     }
 }
