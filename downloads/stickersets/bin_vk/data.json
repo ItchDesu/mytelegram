@@ -1,0 +1,299 @@
+{
+  "title": "Bin :: @mosticks",
+  "short_name": "bin_vk",
+  "count": 32,
+  "is_official": false,
+  "is_animated": false,
+  "is_video": false,
+  "stickers": [
+    {
+      "index": 1,
+      "document_id": "29747570557328341",
+      "mime_type": "image/webp",
+      "file": "001_29747570557328341.webp",
+      "emojis": [
+        "😃"
+      ]
+    },
+    {
+      "index": 2,
+      "document_id": "29747570557328342",
+      "mime_type": "image/webp",
+      "file": "002_29747570557328342.webp",
+      "emojis": [
+        "😉"
+      ]
+    },
+    {
+      "index": 3,
+      "document_id": "29747570557328343",
+      "mime_type": "image/webp",
+      "file": "003_29747570557328343.webp",
+      "emojis": [
+        "😌"
+      ]
+    },
+    {
+      "index": 4,
+      "document_id": "29747570557328344",
+      "mime_type": "image/webp",
+      "file": "004_29747570557328344.webp",
+      "emojis": [
+        "😍"
+      ]
+    },
+    {
+      "index": 5,
+      "document_id": "29747570557328345",
+      "mime_type": "image/webp",
+      "file": "005_29747570557328345.webp",
+      "emojis": [
+        "❤"
+      ]
+    },
+    {
+      "index": 6,
+      "document_id": "29747570557328346",
+      "mime_type": "image/webp",
+      "file": "006_29747570557328346.webp",
+      "emojis": [
+        "😍"
+      ]
+    },
+    {
+      "index": 7,
+      "document_id": "29747570557328347",
+      "mime_type": "image/webp",
+      "file": "007_29747570557328347.webp",
+      "emojis": [
+        "😘"
+      ]
+    },
+    {
+      "index": 8,
+      "document_id": "29747570557328348",
+      "mime_type": "image/webp",
+      "file": "008_29747570557328348.webp",
+      "emojis": [
+        "😬"
+      ]
+    },
+    {
+      "index": 9,
+      "document_id": "29747570557328349",
+      "mime_type": "image/webp",
+      "file": "009_29747570557328349.webp",
+      "emojis": [
+        "😏"
+      ]
+    },
+    {
+      "index": 10,
+      "document_id": "29747570557328350",
+      "mime_type": "image/webp",
+      "file": "010_29747570557328350.webp",
+      "emojis": [
+        "😳"
+      ]
+    },
+    {
+      "index": 11,
+      "document_id": "29747570557328351",
+      "mime_type": "image/webp",
+      "file": "011_29747570557328351.webp",
+      "emojis": [
+        "🤷"
+      ]
+    },
+    {
+      "index": 12,
+      "document_id": "29747570557328352",
+      "mime_type": "image/webp",
+      "file": "012_29747570557328352.webp",
+      "emojis": [
+        "🤦"
+      ]
+    },
+    {
+      "index": 13,
+      "document_id": "29747570557328353",
+      "mime_type": "image/webp",
+      "file": "013_29747570557328353.webp",
+      "emojis": [
+        "😑"
+      ]
+    },
+    {
+      "index": 14,
+      "document_id": "29747570557328354",
+      "mime_type": "image/webp",
+      "file": "014_29747570557328354.webp",
+      "emojis": [
+        "😵"
+      ]
+    },
+    {
+      "index": 15,
+      "document_id": "29747570557328355",
+      "mime_type": "image/webp",
+      "file": "015_29747570557328355.webp",
+      "emojis": [
+        "😓"
+      ]
+    },
+    {
+      "index": 16,
+      "document_id": "29747570557328356",
+      "mime_type": "image/webp",
+      "file": "016_29747570557328356.webp",
+      "emojis": [
+        "😥"
+      ]
+    },
+    {
+      "index": 17,
+      "document_id": "29747570557328357",
+      "mime_type": "image/webp",
+      "file": "017_29747570557328357.webp",
+      "emojis": [
+        "🤢"
+      ]
+    },
+    {
+      "index": 18,
+      "document_id": "29747570557328358",
+      "mime_type": "image/webp",
+      "file": "018_29747570557328358.webp",
+      "emojis": [
+        "👿"
+      ]
+    },
+    {
+      "index": 19,
+      "document_id": "29747570557328359",
+      "mime_type": "image/webp",
+      "file": "019_29747570557328359.webp",
+      "emojis": [
+        "🙏"
+      ]
+    },
+    {
+      "index": 20,
+      "document_id": "29747570557328360",
+      "mime_type": "image/webp",
+      "file": "020_29747570557328360.webp",
+      "emojis": [
+        "☹"
+      ]
+    },
+    {
+      "index": 21,
+      "document_id": "29747570557328361",
+      "mime_type": "image/webp",
+      "file": "021_29747570557328361.webp",
+      "emojis": [
+        "👎"
+      ]
+    },
+    {
+      "index": 22,
+      "document_id": "29747570557328362",
+      "mime_type": "image/webp",
+      "file": "022_29747570557328362.webp",
+      "emojis": [
+        "😡"
+      ]
+    },
+    {
+      "index": 23,
+      "document_id": "29747570557328363",
+      "mime_type": "image/webp",
+      "file": "023_29747570557328363.webp",
+      "emojis": [
+        "😡"
+      ]
+    },
+    {
+      "index": 24,
+      "document_id": "29747570557328364",
+      "mime_type": "image/webp",
+      "file": "024_29747570557328364.webp",
+      "emojis": [
+        "📣"
+      ]
+    },
+    {
+      "index": 25,
+      "document_id": "29747570557328365",
+      "mime_type": "image/webp",
+      "file": "025_29747570557328365.webp",
+      "emojis": [
+        "😭",
+        "💔"
+      ]
+    },
+    {
+      "index": 26,
+      "document_id": "29747570557328366",
+      "mime_type": "image/webp",
+      "file": "026_29747570557328366.webp",
+      "emojis": [
+        "😢"
+      ]
+    },
+    {
+      "index": 27,
+      "document_id": "29747570557328367",
+      "mime_type": "image/webp",
+      "file": "027_29747570557328367.webp",
+      "emojis": [
+        "😭"
+      ]
+    },
+    {
+      "index": 28,
+      "document_id": "29747570557328368",
+      "mime_type": "image/webp",
+      "file": "028_29747570557328368.webp",
+      "emojis": [
+        "😵"
+      ]
+    },
+    {
+      "index": 29,
+      "document_id": "29747570557328369",
+      "mime_type": "image/webp",
+      "file": "029_29747570557328369.webp",
+      "emojis": [
+        "☂"
+      ]
+    },
+    {
+      "index": 30,
+      "document_id": "29747570557328370",
+      "mime_type": "image/webp",
+      "file": "030_29747570557328370.webp",
+      "emojis": [
+        "😋"
+      ]
+    },
+    {
+      "index": 31,
+      "document_id": "29747570557328371",
+      "mime_type": "image/webp",
+      "file": "031_29747570557328371.webp",
+      "emojis": [
+        "⏰"
+      ]
+    },
+    {
+      "index": 32,
+      "document_id": "29747570557328372",
+      "mime_type": "image/webp",
+      "file": "032_29747570557328372.webp",
+      "emojis": [
+        "🏃"
+      ]
+    }
+  ]
+}
