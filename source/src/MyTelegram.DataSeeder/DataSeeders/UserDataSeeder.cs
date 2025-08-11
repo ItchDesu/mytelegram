@@ -6,10 +6,10 @@ namespace MyTelegram.DataSeeder.DataSeeders;
 public class UserDataSeeder(
     ICommandBus commandBus,
     IEventStore eventStore,
-    ILogger<UserDataSeeder> logger,
+     ILogger<UserDataSeeder> logger,
     IOptionsMonitor<MyTelegramDataSeederOptions> options,
     ISnapshotStore snapshotStore,
-    BotfatherClient botfatherClient)
+    BotfatherBot botfatherBot)
     : IUserDataSeeder, ITransientDependency
 {
     public async Task SeedAsync()
@@ -136,6 +136,23 @@ public class UserDataSeeder(
             var setVerifiedCommand = new SetVerifiedCommand(UserId.Create(userId), true);
             await commandBus.PublishAsync(setVerifiedCommand);
             logger.LogInformation("MyTelegram notification user created successfully");
+        }
+    }
+
+    private async Task CreateBotFatherUserAsync()
+    {
+        var userId = MyTelegramConsts.BotFatherUserId;
+        var created = await CreateUserIfNeedAsync(userId,
+            string.Empty,
+            "BotFather",
+            null,
+            "botfather",
+            true);
+
+        if (created)
+        {
+            await botfatherBot.EnsureWebhookAsync();
+            logger.LogInformation("BotFather user created successfully");
         }
     }
 }

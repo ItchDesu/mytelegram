@@ -35,7 +35,7 @@ public static class MyTelegramDataSeederExtensions
         });
 
         services.AddTransient(typeof(IDataSeeder<>), typeof(DataSeeder<>));
-        services.AddSingleton<BotfatherClient>();
+        services.AddSingleton<BotfatherBot>();
         services.RegisterServices();
         services.AddReadModelMongoDbContext();
         services.AddEventStoreMongoDbContext();
